@@ -1,0 +1,25 @@
+{
+  "name": "skyblock-stats-viewer",
+  "version": "1.0.0",
+  "description": "A beautiful Hypixel SkyBlock stats viewer",
+  "main": "api-server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node api-server.js",
+    "dev": "node api-server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "skyhelper-networth": "^2.4.3"
+  },
+  "keywords": [
+    "hypixel",
+    "skyblock",
+    "minecraft",
+    "stats"
+  ],
+  "author": "",
+  "license": "MIT"
+}

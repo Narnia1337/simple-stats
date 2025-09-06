@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyBlock Stats - Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-text">SkyBlock</span>
+                    <span class="logo-accent">Stats</span>
+                </div>
+                <nav class="nav">
+                    <a href="#" class="nav-link active">Player</a>
+                    <a href="#" class="nav-link">Leaderboards</a>
+                    <a href="#" class="nav-link">Auctions</a>
+                </nav>
+            </div>
+        </header>
+
+        <section class="search-section">
+            <div class="search-container">
+                <h1 class="search-title">Hypixel SkyBlock Stats</h1>
+                <p class="search-subtitle">Track your progress, analyze your stats</p>
+                
+                <div class="search-box">
+                    <input 
+                        type="text" 
+                        id="username-input" 
+                        class="search-input" 
+                        placeholder="Enter username"
+                        spellcheck="false"
+                        autocomplete="off"
+                    >
+                    <button id="search-btn" class="search-button">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"/>
+                            <path d="m21 21-4.35-4.35"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="recent-searches" id="recent-searches">
+                </div>
+            </div>
+        </section>
+
+        <div class="loader" id="loader">
+            <div class="loader-spinner"></div>
+            <p class="loader-text">Verifying player...</p>
+        </div>
+
+        <div class="error" id="error">
+            <div class="error-icon">!</div>
+            <p class="error-message" id="error-message">Player not found</p>
+        </div>
+
+        <section class="stats-section" id="stats" style="display: none;">
+            <div class="player-overview">
+                <div class="player-identity">
+                    <div class="player-avatar">
+                        <img id="player-head" src="" alt="" class="player-head">
+                    </div>
+                    <div class="player-info">
+                        <h2 class="player-name" id="player-name"></h2>
+                        <div class="player-meta">
+                            <span class="meta-item">
+                                <span class="meta-label">Profile</span>
+                                <span class="meta-value" id="profile-name"></span>
+                            </span>
+                            <span class="meta-item">
+                                <span class="meta-label">SkyBlock Level</span>
+                                <span class="meta-value" id="sb-level"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quick-stats">
+                    <div class="quick-stat">
+                        <span class="quick-stat-label">Networth</span>
+                        <span class="quick-stat-value" id="networth">—</span>
+                    </div>
+                    <div class="quick-stat">
+                        <span class="quick-stat-label">Skill Average</span>
+                        <span class="quick-stat-value" id="skill-avg">—</span>
+                    </div>
+                    <div class="quick-stat">
+                        <span class="quick-stat-label">Slayer Total</span>
+                        <span class="quick-stat-value" id="slayer-total">—</span>
+                    </div>
+                    <div class="quick-stat">
+                        <span class="quick-stat-label">Catacombs</span>
+                        <span class="quick-stat-value" id="catacombs-level">—</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tabs">
+                <button class="tab active" data-tab="overview">Overview</button>
+                <button class="tab" data-tab="skills">Skills</button>
+                <button class="tab" data-tab="slayers">Slayers</button>
+                <button class="tab" data-tab="dungeons">Dungeons</button>
+                <button class="tab" data-tab="wealth">Wealth</button>
+            </div>
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="overview-tab">
+                    <div class="overview-grid">
+                        <div class="stat-card">
+                            <h3 class="card-title">Wealth</h3>
+                            <div class="wealth-stats">
+                                <div class="wealth-item">
+                                    <span class="wealth-label">Total Networth</span>
+                                    <span class="wealth-value" id="networth-detail">—</span>
+                                </div>
+                                <div class="wealth-item">
+                                    <span class="wealth-label">Purse</span>
+                                    <span class="wealth-value" id="purse">—</span>
+                                </div>
+                                <div class="wealth-item">
+                                    <span class="wealth-label">Bank</span>
+                                    <span class="wealth-value" id="bank">—</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <h3 class="card-title">Skills</h3>
+                            <div class="skills-overview" id="skills-overview"></div>
+                        </div>
+
+                        <div class="stat-card">
+                            <h3 class="card-title">Slayers</h3>
+                            <div class="slayers-overview" id="slayers-overview"></div>
+                        </div>
+
+                        <div class="stat-card">
+                            <h3 class="card-title">Miscellaneous</h3>
+                            <div class="misc-stats">
+                                <div class="misc-item">
+                                    <span class="misc-label">Fairy Souls</span>
+                                    <span class="misc-value" id="fairy-souls">—</span>
+                                </div>
+                                <div class="misc-item">
+                                    <span class="misc-label">Catacombs Level</span>
+                                    <span class="misc-value" id="cata-detail">—</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="skills-tab">
+                    <div class="skills-grid" id="skills-detailed"></div>
+                </div>
+
+                <div class="tab-pane" id="slayers-tab">
+                    <div class="slayers-grid" id="slayers-detailed"></div>
+                </div>
+
+                <div class="tab-pane" id="dungeons-tab">
+                    <div class="dungeons-content">
+                        <p class="coming-soon">Dungeon statistics coming soon</p>
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="wealth-tab">
+                    <div class="wealth-content">
+                        <div class="wealth-breakdown" id="wealth-breakdown"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

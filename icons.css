@@ -1,0 +1,181 @@
+/* Skill and Slayer Icons */
+.skill-icon, .slayer-icon {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+    filter: drop-shadow(0 0 3px rgba(0, 212, 255, 0.5));
+    transition: all 0.3s;
+}
+
+.skill-icon:hover, .slayer-icon:hover {
+    transform: scale(1.1) rotate(5deg);
+    filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.8));
+}
+
+/* Skill Icons as Unicode/Emoji alternatives with CSS shapes */
+.icon-farming::before {
+    content: "🌾";
+    font-size: 20px;
+}
+
+.icon-mining::before {
+    content: "⛏";
+    font-size: 20px;
+}
+
+.icon-combat::before {
+    content: "⚔";
+    font-size: 20px;
+}
+
+.icon-foraging::before {
+    content: "🪓";
+    font-size: 20px;
+}
+
+.icon-fishing::before {
+    content: "🎣";
+    font-size: 20px;
+}
+
+.icon-enchanting::before {
+    content: "✨";
+    font-size: 20px;
+}
+
+.icon-alchemy::before {
+    content: "⚗";
+    font-size: 20px;
+}
+
+.icon-taming::before {
+    content: "🐺";
+    font-size: 20px;
+}
+
+.icon-carpentry::before {
+    content: "🔨";
+    font-size: 20px;
+}
+
+.icon-runecrafting::before {
+    content: "◈";
+    font-size: 20px;
+    color: #ff00ff;
+}
+
+.icon-social::before {
+    content: "👥";
+    font-size: 20px;
+}
+
+/* Slayer Icons */
+.icon-zombie::before {
+    content: "🧟";
+    font-size: 20px;
+}
+
+.icon-spider::before {
+    content: "🕷";
+    font-size: 20px;
+}
+
+.icon-wolf::before {
+    content: "🐺";
+    font-size: 20px;
+}
+
+.icon-enderman::before {
+    content: "👁";
+    font-size: 20px;
+    color: #8b00ff;
+}
+
+.icon-blaze::before {
+    content: "🔥";
+    font-size: 20px;
+}
+
+.icon-vampire::before {
+    content: "🦇";
+    font-size: 20px;
+    color: #ff0000;
+}
+
+/* Better approach - use custom SVG backgrounds */
+.skill-icon {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.skill-icon.farming {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%2300ff88' d='M12 2C11.5 2 11 2.19 10.59 2.59L2.59 10.59C1.8 11.37 1.8 12.63 2.59 13.41L10.59 21.41C11.37 22.2 12.63 22.2 13.41 21.41L21.41 13.41C22.2 12.63 22.2 11.37 21.41 10.59L13.41 2.59C13 2.19 12.5 2 12 2M12 4L20 12L12 20L4 12L12 4M7 8V10H9V8H7M11 8V10H13V8H11M15 8V10H17V8H15M7 11V13H9V11H7M11 11V13H13V11H11M15 11V13H17V11H15M7 14V16H9V14H7M11 14V16H13V14H11M15 14V16H17V14H15Z'/%3E%3C/svg%3E");
+}
+
+.skill-icon.mining {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23888888' d='M13.8 13.8L16.3 11.3L20.3 15.3L22.8 12.8L18.8 8.8L21.4 6.2L14.1 2L10 8L5.4 3.4L2 6.8L6.6 11.4L2.4 14.1L6.6 21.4L9.2 18.8L13.2 22.8L15.7 20.3L11.7 16.3L14.2 13.8'/%3E%3C/svg%3E");
+}
+
+.skill-icon.combat {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ff4444' d='M6.92 5H5L14 14L15 13.06M19.96 19.12L19.12 19.96C18.73 20.35 18.1 20.35 17.71 19.96L14.59 16.84L11.91 19.5L10.5 18.09L11.92 16.67L3 7.75V3H7.75L16.67 11.92L18.09 10.5L19.5 11.91L16.83 14.58L19.95 17.7C20.35 18.1 20.35 18.73 19.96 19.12Z'/%3E%3C/svg%3E");
+}
+
+.skill-icon.foraging {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%2388ff88' d='M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z'/%3E%3C/svg%3E");
+}
+
+.skill-icon.fishing {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%2300aaff' d='M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,12.5A1.5,1.5 0 0,1 10.5,11A1.5,1.5 0 0,1 12,9.5A1.5,1.5 0 0,1 13.5,11A1.5,1.5 0 0,1 12,12.5M12,7.2C9.9,7.2 8.2,8.9 8.2,11C8.2,14 12,17.5 12,17.5C12,17.5 15.8,14 15.8,11C15.8,8.9 14.1,7.2 12,7.2Z'/%3E%3C/svg%3E");
+}
+
+.skill-icon.enchanting {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ff00ff' d='M7,2V13H10V22L17,10H13L17,2H7Z'/%3E%3C/svg%3E");
+}
+
+.skill-icon.alchemy {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffaa00' d='M7,2V4H8V18A4,4 0 0,0 12,22A4,4 0 0,0 16,18V4H17V2H7M11,7.5L12.5,7L15,10L12.5,11.5L11,9.5V16A2,2 0 0,1 9,14V8.5L11,7.5Z'/%3E%3C/svg%3E");
+}
+
+.skill-icon.taming {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ff8844' d='M18,4C16.29,4 15.25,4.33 14.65,4.61C13.88,4.23 13,4 12,4C11,4 10.12,4.23 9.35,4.61C8.75,4.33 7.71,4 6,4C3,4 1,12 1,14C1,14.83 2.32,15.59 4.14,15.9C4.78,18.14 7.8,19.85 11.5,20V15.72C10.91,15.35 10,14.68 10,14C10,13 11,12 12,12C13,12 14,13 14,14C14,14.68 13.09,15.35 12.5,15.72V20C16.2,19.85 19.22,18.14 19.86,15.9C21.68,15.59 23,14.83 23,14C23,12 21,4 18,4Z'/%3E%3C/svg%3E");
+}
+
+.skill-icon.carpentry {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23964B00' d='M20,8L14,2.74C13.45,2.26 12.79,2 12.09,2H7C5.9,2 5,2.9 5,4V20C5,21.1 5.9,22 7,22H17C18.1,22 19,21.1 19,20V11.72L20,10.72V8M7,20V4H11V9H16V20H7M18,9H12V3.5L18,9Z'/%3E%3C/svg%3E");
+}
+
+.skill-icon.runecrafting {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23aa00ff' d='M12,2L2,7V12.5C2,15.89 4.22,19 7.3,20.9L8,21.3V12.2L3,10V8.5L12,4L21,8.5V10L16,12.2V21.3L16.7,20.9C19.78,19 22,15.89 22,12.5V7L12,2M10,12V21C10.58,21.3 11.28,21.54 12,21.7C12.72,21.54 13.42,21.3 14,21V12L12,11L10,12Z'/%3E%3C/svg%3E");
+}
+
+.skill-icon.social {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%2300ffff' d='M12,5.5A3.5,3.5 0 0,1 15.5,9A3.5,3.5 0 0,1 12,12.5A3.5,3.5 0 0,1 8.5,9A3.5,3.5 0 0,1 12,5.5M5,8C5.56,8 6.08,8.15 6.53,8.42C6.38,9.85 6.8,11.27 7.66,12.38C7.16,13.34 6.16,14 5,14A3,3 0 0,1 2,11A3,3 0 0,1 5,8M19,8A3,3 0 0,1 22,11A3,3 0 0,1 19,14C17.84,14 16.84,13.34 16.34,12.38C17.2,11.27 17.62,9.85 17.47,8.42C17.92,8.15 18.44,8 19,8M5.5,18.25C5.5,16.18 8.41,14.5 12,14.5C15.59,14.5 18.5,16.18 18.5,18.25V20H5.5V18.25M0,20V18.5C0,17.11 1.89,15.94 4.45,15.6C3.86,16.28 3.5,17.22 3.5,18.25V20H0M24,20H20.5V18.25C20.5,17.22 20.14,16.28 19.55,15.6C22.11,15.94 24,17.11 24,18.5V20Z'/%3E%3C/svg%3E");
+}
+
+/* Slayer Icons */
+.slayer-icon.zombie {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%2300aa00' d='M12,2A9,9 0 0,0 3,11C3,14.03 4.53,16.82 7,18.47V22H9V19H11V22H13V19H15V22H17V18.46C19.47,16.81 21,14 21,11A9,9 0 0,0 12,2M8,11A2,2 0 0,1 10,13A2,2 0 0,1 8,15A2,2 0 0,1 6,13A2,2 0 0,1 8,11M16,11A2,2 0 0,1 18,13A2,2 0 0,1 16,15A2,2 0 0,1 14,13A2,2 0 0,1 16,11Z'/%3E%3C/svg%3E");
+}
+
+.slayer-icon.spider {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23444444' d='M20.19,12L22,10.19V8.44L18.44,12L22,15.56V13.81L20.19,12M17.54,12L21.09,8.44H19.34L16.65,11.1L16.06,10.5L19.34,7.24V5.5L14.84,10L19.34,14.5V12.75L16.06,9.5L16.65,8.89L19.34,11.56H21.09L17.54,12M7.35,11.1L4.66,8.44H2.91L6.46,12L2.91,15.56H4.66L7.35,12.9L7.94,13.5L4.66,16.75V18.5L9.16,14L4.66,9.5V11.25L7.94,14.5L7.35,15.11L4.66,12.44H2.91L6.46,12L2.91,8.44H4.66L7.35,11.1M2,10.19L3.81,12L2,13.81V15.56L5.56,12L2,8.44V10.19M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z'/%3E%3C/svg%3E");
+}
+
+.slayer-icon.wolf {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23888888' d='M8.5,5L7.05,6.5L8.5,8L10,6.5L8.5,5M12,5L10.55,6.5L12,8L13.45,6.5L12,5M15.5,5L14.05,6.5L15.5,8L17,6.5L15.5,5M18,12C18,14 17.5,15.85 16.64,17.18L17,19H18C18.55,19 19,19.45 19,20C19,20.55 18.55,21 18,21H14L14.39,18.5C13.68,18.81 12.86,19 12,19C11.14,19 10.32,18.81 9.61,18.5L10,21H6C5.45,21 5,20.55 5,20C5,19.45 5.45,19 6,19H7L7.36,17.18C6.5,15.85 6,14 6,12L6,10L12,3L18,10V12Z'/%3E%3C/svg%3E");
+}
+
+.slayer-icon.enderman {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%238b00ff' d='M12,2C9.24,2 7,4.24 7,7V12L4,9V14L7,17V22H11V18H13V22H17V17L20,14V9L17,12V7C17,4.24 14.76,2 12,2M9,7A1,1 0 0,1 10,8A1,1 0 0,1 9,9A1,1 0 0,1 8,8A1,1 0 0,1 9,7M15,7A1,1 0 0,1 16,8A1,1 0 0,1 15,9A1,1 0 0,1 14,8A1,1 0 0,1 15,7Z'/%3E%3C/svg%3E");
+}
+
+.slayer-icon.blaze {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ff8800' d='M17.66,11.2C17.43,10.9 17.15,10.64 16.89,10.38C16.22,9.78 15.46,9.35 14.82,8.72C13.33,7.26 13,4.85 13.95,3C13,3.23 12.17,3.75 11.46,4.32C8.87,6.4 7.85,10.07 9.07,13.22C9.11,13.32 9.15,13.42 9.15,13.55C9.15,13.77 9,13.97 8.8,14.05C8.57,14.15 8.33,14.09 8.14,13.93C8.08,13.88 8.04,13.83 8,13.76C6.87,12.33 6.69,10.28 7.45,8.64C5.78,10 4.87,12.3 5,14.47C5.06,14.97 5.12,15.47 5.29,15.97C5.43,16.57 5.7,17.17 6,17.7C7.08,19.43 8.95,20.67 10.96,20.92C13.1,21.19 15.39,20.8 17.03,19.32C18.86,17.66 19.5,15 18.56,12.72L18.43,12.46C18.22,12 17.66,11.2 17.66,11.2M14.5,17.5C14.22,17.74 13.76,18 13.4,18.1C12.28,18.5 11.16,17.94 10.5,17.28C11.69,17 12.4,16.12 12.61,15.23C12.78,14.43 12.46,13.77 12.33,13C12.21,12.26 12.23,11.63 12.5,10.94C12.69,11.32 12.89,11.7 13.13,12C13.9,13 15.11,13.44 15.37,14.8C15.41,14.94 15.43,15.08 15.43,15.23C15.46,16.05 15.1,16.95 14.5,17.5H14.5Z'/%3E%3C/svg%3E");
+}
+
+.slayer-icon.vampire {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23cc0000' d='M12,2C9.97,2 8.15,2.8 6.89,4L9,6V4C9.73,3.4 10.8,3 12,3C13.2,3 14.27,3.4 15,4V6L17.11,4C15.85,2.8 14.03,2 12,2M2,8L5,11L8,8V11C8,15.42 12,22 12,22C12,22 16,15.42 16,11V8L19,11L22,8C22,14.63 17.5,20 12,20C6.5,20 2,14.63 2,8M10.5,10A1.5,1.5 0 0,0 9,11.5A1.5,1.5 0 0,0 10.5,13A1.5,1.5 0 0,0 12,11.5A1.5,1.5 0 0,0 10.5,10M13.5,10A1.5,1.5 0 0,0 12,11.5A1.5,1.5 0 0,0 13.5,13A1.5,1.5 0 0,0 15,11.5A1.5,1.5 0 0,0 13.5,10Z'/%3E%3C/svg%3E");
+}

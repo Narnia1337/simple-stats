@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI Test - SkyBlock Stats</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0f0f0f;
+            color: #fff;
+            padding: 20px;
+        }
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .test-section {
+            background: #1a1a1a;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .test-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #60a5fa;
+        }
+        .player-head {
+            width: 128px;
+            height: 128px;
+            border-radius: 8px;
+            background: #2a2a2a;
+        }
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .test-item {
+            background: #252525;
+            padding: 12px;
+            border-radius: 8px;
+        }
+        .label {
+            color: #888;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+        .value {
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .status-good {
+            color: #10b981;
+        }
+        .status-bad {
+            color: #ef4444;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1 style="text-align: center; margin-bottom: 30px;">SkyBlock Stats UI Test</h1>
+        
+        <div class="test-section">
+            <div class="test-title">Player Head Rendering Test</div>
+            <div style="display: flex; gap: 20px; align-items: center;">
+                <div>
+                    <div class="label">Using UUID (DeathStreeks)</div>
+                    <img src="https://crafatar.com/avatars/fb3d96498a5b4d5b91b763db14b195ad?size=128&overlay=true" 
+                         alt="Player Head" class="player-head">
+                </div>
+                <div>
+                    <div class="label">Using Username (Technoblade)</div>
+                    <img src="https://crafatar.com/avatars/Technoblade?size=128&overlay=true" 
+                         alt="Player Head" class="player-head">
+                </div>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <div class="test-title">Data Display Test</div>
+            <div class="test-grid">
+                <div class="test-item">
+                    <div class="label">Networth</div>
+                    <div class="value" id="networth">Loading...</div>
+                </div>
+                <div class="test-item">
+                    <div class="label">SkyBlock Level</div>
+                    <div class="value" id="sb-level">Loading...</div>
+                </div>
+                <div class="test-item">
+                    <div class="label">Fairy Souls</div>
+                    <div class="value" id="fairy-souls">Loading...</div>
+                </div>
+                <div class="test-item">
+                    <div class="label">Last Active</div>
+                    <div class="value" id="last-active">Loading...</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <div class="test-title">API Status</div>
+            <div id="api-status"></div>
+        </div>
+    </div>
+    
+    <script>
+        function formatNumber(num) {
+            if (num >= 1e9) return (num / 1e9).toFixed(2) + 'B';
+            if (num >= 1e6) return (num / 1e6).toFixed(2) + 'M';
+            if (num >= 1e3) return (num / 1e3).toFixed(1) + 'K';
+            return Math.floor(num).toString();
+        }
+        
+        async function testAPI() {
+            const statusDiv = document.getElementById('api-status');
+            
+            try {
+                const response = await fetch('http://localhost:3000/api/stats/DeathStreeks');
+                const data = await response.json();
+                
+                // Update displays
+                document.getElementById('networth').textContent = formatNumber(data.netWorth || 0);
+                document.getElementById('networth').className = data.netWorth > 0 ? 'value status-good' : 'value status-bad';
+                
+                document.getElementById('sb-level').textContent = data.skyblockLevel || '0';
+                document.getElementById('sb-level').className = data.skyblockLevel > 0 ? 'value status-good' : 'value status-bad';
+                
+                document.getElementById('fairy-souls').textContent = data.fairySouls || '0';
+                document.getElementById('fairy-souls').className = data.fairySouls > 0 ? 'value status-good' : 'value status-bad';
+                
+                // Calculate last active
+                if (data.lastSave && data.lastSave > 0) {
+                    const diff = Date.now() - data.lastSave;
+                    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    document.getElementById('last-active').textContent = `${days}d ${hours}h ago`;
+                    document.getElementById('last-active').className = 'value status-good';
+                } else {
+                    document.getElementById('last-active').textContent = 'Never';
+                    document.getElementById('last-active').className = 'value status-bad';
+                }
+                
+                // Show API response status
+                statusDiv.innerHTML = `
+                    <div style="color: #10b981;">✓ API Connected Successfully</div>
+                    <div style="margin-top: 10px; font-size: 12px; color: #666;">
+                        <div>Profile: ${data.profileName}</div>
+                        <div>UUID: ${data.uuid}</div>
+                        <div>Skills Average: ${data.skills?.average?.toFixed(1) || 0}</div>
+                        <div>Slayer Total: ${data.slayers?.total || 0}</div>
+                    </div>
+                `;
+            } catch (error) {
+                statusDiv.innerHTML = `<div style="color: #ef4444;">✗ API Error: ${error.message}</div>`;
+            }
+        }
+        
+        // Test on load
+        testAPI();
+    </script>
+</body>
+</html>
