@@ -1,0 +1,13 @@
+{
+  "functions": {
+    "api/stats/[username].js": {
+      "maxDuration": 10
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/stats/:username",
+      "destination": "/api/stats/[username]"
+    }
+  ]
+}

@@ -1,4 +1,6 @@
-const API_URL = 'http://localhost:3000/api';
+const API_URL = window.location.hostname === 'localhost' 
+    ? 'http://localhost:3000/api'
+    : '/api/stats';
 
 let currentData = null;
 
@@ -60,7 +62,10 @@ function switchSection(sectionName) {
 
 async function loadPlayerData(username) {
     try {
-        const response = await fetch(`${API_URL}/stats/${encodeURIComponent(username)}`);
+        const apiUrl = window.location.hostname === 'localhost' 
+            ? `http://localhost:3000/api/stats/${encodeURIComponent(username)}`
+            : `/api/stats/${encodeURIComponent(username)}`;
+        const response = await fetch(apiUrl);
         
         if (!response.ok) {
             throw new Error('Player not found');
